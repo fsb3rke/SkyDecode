@@ -34,7 +34,7 @@ SkyDecode is a terminal-based CLI tool written in Rust that fetches and decodes 
 
 ```text
 USAGE:
-    skydecode --ids <ICAO_CODES> [--raw]
+    SkyDecode --ids <ICAO_CODES> [--raw]
 
 OPTIONS:
     --ids <ICAO_CODES>    Comma-separated list of airport ICAO codes (e.g., LTFM,LTBA)
