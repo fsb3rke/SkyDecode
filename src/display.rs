@@ -1,7 +1,15 @@
 use tabled::Tabled;
+use tabled::settings::{Style, width::Wrap};
 use crate::decode::DecodedMetar;
+use terminal_size::{terminal_size, Width};
 
 pub fn print_table(data: Vec<DecodedMetar>, show_raw: bool) {
+    let term_width = if let Some((Width(w), _)) = terminal_size() {
+        w as usize
+    } else {
+        80
+    };
+
     if show_raw {
         #[derive(Tabled)]
         struct Row {
@@ -12,7 +20,9 @@ pub fn print_table(data: Vec<DecodedMetar>, show_raw: bool) {
             raw: m.raw.clone(),
         }).collect();
 
-        let table = tabled::Table::new(rows);
+        let mut table = tabled::Table::new(rows);
+        table.with(Style::rounded());
+        table.with(Wrap::new(term_width));
         println!("{}", table);
     } else {
         #[derive(Tabled)]
@@ -32,7 +42,9 @@ pub fn print_table(data: Vec<DecodedMetar>, show_raw: bool) {
             temperature: m.temperature.clone(),
         }).collect();
 
-        let table = tabled::Table::new(rows);
+        let mut table = tabled::Table::new(rows);
+        table.with(Style::rounded());
+        table.with(Wrap::new(term_width/5));
         println!("{}", table);
     }
 }

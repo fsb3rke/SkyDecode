@@ -11,3 +11,4 @@ tabled = "0.16"
 clap = { version = "4", features = ["derive"] }
 colored = "3"
 indicatif = "0.17"
+terminal_size = "0.2"
