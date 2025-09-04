@@ -44,7 +44,7 @@ pub fn print_table(data: Vec<DecodedMetar>, show_raw: bool) {
 
         let mut table = tabled::Table::new(rows);
         table.with(Style::rounded());
-        table.with(Wrap::new(term_width/5));
+        table.with(Wrap::new(term_width));
         println!("{}", table);
     }
 }
