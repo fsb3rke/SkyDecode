@@ -8,6 +8,7 @@ pub struct DecodedMetar {
     pub wind: String,
     pub visibility: String,
     pub temperature: String,
+    pub raw: String,
 }
 
 fn wind_speed_to_knots(speed: &WindSpeed) -> u32 {
@@ -45,6 +46,7 @@ pub fn decode_metar(raw: &str) -> Option<DecodedMetar> {
             wind: wind,
             visibility: visibility,
             temperature: m.temperature.to_string(),
+            raw: raw.to_string(),
         })
     } else {
         None

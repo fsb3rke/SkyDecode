@@ -23,5 +23,5 @@ async fn main() {
         }
     }
 
-    print_table(decoded_list);
+    print_table(decoded_list, args.raw);
 }
