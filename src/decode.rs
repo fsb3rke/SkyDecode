@@ -36,7 +36,7 @@ pub fn decode_metar(raw: &str) -> Option<DecodedMetar> {
 
         let visibility = match m.visibility {
             metar::Visibility::Metres(v) => format!("{} m", v),
-            _ => "N/A m",
+            _ => "N/A m".to_string(),
         };
 
 
