@@ -14,6 +14,5 @@ pub async fn fetch_metar(ids: &str) -> Result<String, reqwest::Error> {
 
     let body = reqwest::get(&url).await?.text().await?;
 
-    pb.finish_with_message("OK");
     Ok(body)
 }

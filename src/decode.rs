@@ -14,14 +14,14 @@ pub struct DecodedMetar {
 fn wind_speed_to_knots(speed: &WindSpeed) -> u32 {
     match speed {
         WindSpeed::Knot(k) => *k,
-        _ => todo!(),
+        _ => 777,
     }
 }
 
 fn wind_direction_to_heading(heading: &WindDirection) -> u32 {
     match heading {
         WindDirection::Heading(h) => *h,
-        _ => todo!(),
+        _ => 777,
     }
 }
 
@@ -36,7 +36,7 @@ pub fn decode_metar(raw: &str) -> Option<DecodedMetar> {
 
         let visibility = match m.visibility {
             metar::Visibility::Metres(v) => format!("{} m", v),
-            _ => todo!(),
+            _ => "N/A m",
         };
 
 
